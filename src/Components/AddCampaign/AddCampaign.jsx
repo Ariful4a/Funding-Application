@@ -31,22 +31,23 @@ const AddNewCampaign = () => {
         const newCampaign = { title, type, description, minDonation, deadline, userEmail, userName, image };
         console.log(newCampaign);
 
-        // fetch("http://localhost:5000/campaigns", {
-        //     method: "POST",
-        //     headers: { "content-type": "application/json" },
-        //     body: JSON.stringify(newCampaign),
-        // })
-        //     .then((res) => res.json())
-        //     .then((data) => {
-        //         if (data.insertedId) {
-        //             Swal.fire({
-        //                 title: "Success!",
-        //                 text: "Campaign added successfully!",
-        //                 icon: "success",
-        //                 confirmButtonText: "Cool",
-        //             });
-        //         }
-        //     });
+        fetch("http://localhost:5000/campaign", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(newCampaign),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Campaign added successfully!",
+                        icon: "success",
+                        confirmButtonText: "Cool",
+                    });
+                }
+                console.log(data);
+            });
     };
 
     return (
