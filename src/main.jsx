@@ -4,8 +4,9 @@ import './index.css'
 import MainLayout from './Components/MainLayout/MainLayout';
 import Home from './Components/Home.js/Home';
 import Campaigns from './Components/Campaigns/Campaigns';
-import AddCampaign from './Components/AddCampaign/AddCampaign';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
+import AddCampaign from './Components/AddCampaign/AddCampaign';
+
 
 
 
@@ -22,7 +23,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -36,7 +36,9 @@ const router = createBrowserRouter([
         path: "/addCampaign",
         element: <AddCampaign></AddCampaign>,
       },
+    
     ],
+    errorElement: <ErrorPage></ErrorPage>,
   },
 ]);
 
