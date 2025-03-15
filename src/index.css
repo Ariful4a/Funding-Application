@@ -1,2 +1,29 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+
+
+
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  body.dark {
+    background-color: #1a202c; 
+    color: white; 
+  }
+  
+  body:not(.dark) {
+    background-color: white; 
+    color: black; 
+  }
+  
+
+  a {
+    color: inherit;
+  }
+  
+  a:hover {
+    color: red; 
+  }
+  
