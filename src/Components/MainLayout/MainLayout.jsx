@@ -1,10 +1,12 @@
 import React from 'react';
-
+import Navbar from './Headers/Navbar';
+import HeroSlider from '../HeroSlider/Slider';
+import { Outlet } from 'react-router-dom';
 const MainLayout = () => {
     return (
         <div>
-            <h1 className='text-2xl'>Main Layout</h1>
-            <h2 className='text-2xl'>Helo wourld</h2>
+            <Navbar></Navbar>
+            <HeroSlider></HeroSlider>
             <Outlet></Outlet>
         </div>
     );
