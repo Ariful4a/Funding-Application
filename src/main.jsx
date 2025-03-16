@@ -14,6 +14,7 @@ import CardsCampaign from './Components/CardsCampaign/CardsCampaign';
 
 import CardDetails from './Components/CardDetails/CardDetails';
 import CampainLaout from './Components/MainLayout/CampainLaout';
+import AuthProvider from './Components/AuthProvider/AuthProvider';
 
 // 🔹 Router Setup
 const router = createBrowserRouter([
@@ -54,6 +55,8 @@ const router = createBrowserRouter([
 // 🔹 Render the App
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>
 );
