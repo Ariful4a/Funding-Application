@@ -1,22 +1,48 @@
 import { useLoaderData } from "react-router-dom";
-import CardCampaign from "../CardCampaign/CardCampaign";
+import AllCampaingnCard from "../AllCampaingnCard/AllCardCampaingnCard";
+import { useState } from "react";
+
 
 const CardsCampaign = () => {
     const loaderCampaigns = useLoaderData();
+    const [sortOrder, setSortOrder] = useState("asc");
+
+
+    const handleSort = () => {
+        const sorted = [...campaigns].sort((a, b) =>
+            sortOrder === "asc" ? a.minDonation - b.minDonation : b.minDonation - a.minDonation
+        );
+        setCampaigns(sorted);
+        setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+    };
+
 
     if (!loaderCampaigns || loaderCampaigns.length === 0) {
         return <p className="text-center text-2xl text-red-500">No campaigns found!</p>;
     }
 
     return (
-        <div className="max-w-6xl mx-auto pt-36">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {
-                    loaderCampaigns.map(campaign => (
-                        <CardCampaign key={campaign._id} campaign={campaign}></CardCampaign>
-                    ))
-                }
-            </div>
+        <div className="overflow-x-auto max-w-6xl mx-auto pt-36">
+            <h1 className="text-3xl font-bold text-center mb-5">All Campaigns</h1>
+            <button onClick={handleSort} className="btn btn-secondary mb-3">
+                Sort by Min Donation ({sortOrder === "asc" ? "Ascending" : "Descending"})
+            </button>
+            <table className="table w-full">
+                <thead>
+                    <tr>
+                        <th>Campaign</th>
+                        <th>Organizer</th>
+                        <th>Min Donation</th>
+                        <th>Deadline</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {loaderCampaigns.map(campaign => (
+                        <AllCampaingnCard key={campaign._id} campaign={campaign} />
+                    ))}
+                </tbody>
+            </table>
         </div>
     );
 };
