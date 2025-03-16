@@ -1,21 +1,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import Lottie from "lottie-react";
-import uploadAnimation from "../../assets/Main Scene.json";
 import { Fade } from "react-awesome-reveal";
 import Swal from "sweetalert2";
-import { useDropzone } from "react-dropzone";
 
 const AddNewCampaign = () => {
-    const [image, setImage] = useState(null);
-    
-    const { getRootProps, getInputProps } = useDropzone({
-        accept: "image/*",
-        onDrop: (acceptedFiles) => {
-            const file = acceptedFiles[0];
-            setImage(URL.createObjectURL(file));
-        },
-    });
 
     const handleAddCampaign = (e) => {
         e.preventDefault();
@@ -27,8 +15,9 @@ const AddNewCampaign = () => {
         const deadline = form.deadline.value;
         const userEmail = form.userEmail.value;
         const userName = form.userName.value;
+        const photo = form.photo.value;
 
-        const newCampaign = { title, type, description, minDonation, deadline, userEmail, userName, image };
+        const newCampaign = { title, type, description, minDonation, deadline, userEmail, userName, photo };
         console.log(newCampaign);
 
         fetch("http://localhost:5000/campaign", {
@@ -102,18 +91,19 @@ const AddNewCampaign = () => {
                         </div>
                     </div>
                     <div className="mt-4">
-                        <label className="label">Upload Campaign Image</label>
-                        <div {...getRootProps()} className="border-2 border-dashed p-4 text-center cursor-pointer bg-gray-800 rounded-lg">
-                            <input {...getInputProps()} />
-                            {image ? (
-                                <img src={image} alt="Uploaded" className="w-full h-40 object-cover rounded-lg" />
-                            ) : (
-                                <Lottie animationData={uploadAnimation} className="w-24 mx-auto" />
-                            )}
-                            <p className="text-gray-400">Drag & Drop or Click to Upload</p>
-                        </div>
+                        <label className="label">Campaign Image URL</label>
+                        <input
+                            type="text"
+                            name="photo"
+                            className="input input-bordered w-full text-black"
+                            placeholder="Enter image URL"
+                            required
+                        />
                     </div>
-                    <button type="submit" className="btn w-full mt-6 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white py-3 rounded-lg font-bold">
+                    <button
+                        type="submit"
+                        className="btn w-full mt-6 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white py-3 rounded-lg font-bold"
+                    >
                         Add Campaign
                     </button>
                 </form>

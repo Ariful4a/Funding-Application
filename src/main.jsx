@@ -6,6 +6,13 @@ import Home from './Components/Home.js/Home';
 import Campaigns from './Components/Campaigns/Campaigns';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import AddCampaign from './Components/AddCampaign/AddCampaign';
+import CardsCampaign from './Components/CardsCampaign/CardsCampaign';
+import CardDetails from './Components/CardDetails/CardDetails';
+
+
+
+
+
 
 
 
@@ -29,13 +36,24 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "/campaigns",
+        path: "/allcampaigns",
         element: <Campaigns></Campaigns>,
       },
       {
         path: "/addCampaign",
         element: <AddCampaign></AddCampaign>,
       },
+      {
+        path: "/campaigns",
+        element: <CardsCampaign></CardsCampaign>,
+        loader: () => fetch('http://localhost:5000/campaign')
+      },
+      {
+        path: "/campaigns/:id",
+        element: <CardDetails></CardDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5000/campaign/${params.id}`)
+      }
+     
     
     ],
     errorElement: <ErrorPage></ErrorPage>,
