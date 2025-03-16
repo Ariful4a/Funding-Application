@@ -2,8 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import MainLayout from './Components/MainLayout/MainLayout';
-import Home from './Components/Home.js/Home';
-import AllCampaigns from './Components/AllCampaigns/AllCampaigns';
+import Home from './Components/Home/Home';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import AddCampaign from './Components/AddCampaign/AddCampaign';
 import CardsCampaign from './Components/CardsCampaign/CardsCampaign';
@@ -35,10 +34,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
-      {
-        path: "/allcampaigns",
-        element: <AllCampaigns></AllCampaigns>,
-      },
+     
       {
         path: "/addCampaign",
         element: <AddCampaign></AddCampaign>,
@@ -53,8 +49,6 @@ const router = createBrowserRouter([
         element: <CardDetails></CardDetails>,
         loader: ({ params }) => fetch(`http://localhost:5000/campaign/${params.id}`)
       }
-     
-    
     ],
     errorElement: <ErrorPage></ErrorPage>,
   },
