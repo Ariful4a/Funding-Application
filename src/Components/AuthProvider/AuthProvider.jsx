@@ -1,51 +1,69 @@
 
 import { createContext } from "react";
 import { useState } from "react";
-import { auth } from "../firebase/firebase.init";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, sendPasswordResetEmail } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, signInWithPopup } from "firebase/auth";
+import { auth } from "../firebase.config";
+import { GoogleAuthProvider } from "firebase/auth";
 
 
-const AuthContext = createContext();
+
+
+export const AuthContext = createContext();
+const googleProvider = new GoogleAuthProvider();
 
 
 const AuthProvider = ({ children }) => {
 
+    const [loading, setLoading] = useState(true);
+
     const [user, setUser] = useState(null);
+
 
     // create user 
     const createUser = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
+    }
+
+    // create user google 
+    const createUserWithGoogle = () => {
+        setLoading(true);
+        return signInWithPopup(auth, googleProvider);
     }
 
     // login user
     const login = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
     // logout user
     const logout = () => {
+        setLoading(true);
         return signOut(auth);
     }
 
     // update user
-    const updateUser = (user) => {
-        return updateProfile(auth.currentUser, {
-            displayName: user.displayName
-        });
+    const updateUserProfile = (updateData) => {
+        setLoading(true);
+        return updateProfile(auth.currentUser, updateData);
     }
 
-    // reset password
-    const resetPassword = (email) => {
-        return sendPasswordResetEmail(auth, email);
+    // google sign in
+    const googleSignIn = () => {
+        setLoading(true);
+        return signInWithPopup(auth, googleProvider);
     }
+
+
 
     const userInfo = {
         user,
         createUser,
         login,
         logout,
-        updateUser,
-        resetPassword,
+        updateUserProfile,
+        googleSignIn,
         setUser
     }
     return (

@@ -15,6 +15,7 @@ import CardsCampaign from './Components/CardsCampaign/CardsCampaign';
 import CardDetails from './Components/CardDetails/CardDetails';
 import CampainLaout from './Components/MainLayout/CampainLaout';
 import AuthProvider from './Components/AuthProvider/AuthProvider';
+import SignUp from './Components/SignUp/SignUp';
 
 // 🔹 Router Setup
 const router = createBrowserRouter([
@@ -47,8 +48,12 @@ const router = createBrowserRouter([
         element: <CardDetails />,
         loader: ({ params }) => fetch(`http://localhost:5000/campaign/${params.id}`),
       },
-    ],
+    ],  
     errorElement: <ErrorPage />,
+  },
+  {
+    path: "/signup",
+    element: <SignUp />,
   },
 ]);
 

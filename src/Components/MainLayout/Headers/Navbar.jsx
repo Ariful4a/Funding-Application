@@ -40,10 +40,12 @@ const Navbar = () => {
           <Link to="/camlayout/donations" className="hover:text-red-500">My Campaigns</Link>
           <Link to="/camlayout/donations" className="hover:text-red-500">My Donations</Link>
         </ul>
-
-        <button onClick={handleDarkModeToggle} className="p-2 rounded-full bg-gray-200 hover:bg-gray-300">
-          {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-        </button>
+        <div className="flex items-center gap-4">
+          <button onClick={handleDarkModeToggle} className="p-2 rounded-full bg-gray-200 hover:bg-gray-300">
+            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+          <Link to="/signup" className="hover:text-red-500 btn btn-primary">Sign Up</Link>
+        </div>
       </div>
     </nav>
   );
