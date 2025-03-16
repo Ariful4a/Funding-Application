@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import MainLayout from './Components/MainLayout/MainLayout';
 import Home from './Components/Home.js/Home';
-import Campaigns from './Components/Campaigns/Campaigns';
+import AllCampaigns from './Components/AllCampaigns/AllCampaigns';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import AddCampaign from './Components/AddCampaign/AddCampaign';
 import CardsCampaign from './Components/CardsCampaign/CardsCampaign';
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/allcampaigns",
-        element: <Campaigns></Campaigns>,
+        element: <AllCampaigns></AllCampaigns>,
       },
       {
         path: "/addCampaign",
