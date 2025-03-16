@@ -1,61 +1,58 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import MainLayout from './Components/MainLayout/MainLayout';
-import Home from './Components/Home/Home';
-import ErrorPage from './Components/ErrorPage/ErrorPage';
-import AddCampaign from './Components/AddCampaign/AddCampaign';
-import CardsCampaign from './Components/CardsCampaign/CardsCampaign';
-import CardDetails from './Components/CardDetails/CardDetails';
-
-
-
-
-
-
-
-
-
-
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 import "./index.css";
 
+import MainLayout from './Components/MainLayout/MainLayout';
+import Home from './Components/Home/Home';
+import ErrorPage from './Components/ErrorPage/ErrorPage';
+import AddCampaign from './Components/AddCampaign/AddCampaign';
+import CardsCampaign from './Components/CardsCampaign/CardsCampaign';
+import CardDetails from './Components/CardDetails/CardDetails';
+import CampainLaout from './Components/MainLayout/CampainLaout';
 
-
+// 🔹 Router Setup
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout></MainLayout>,
+    element: <MainLayout />,
     children: [
       {
         path: "/",
-        element: <Home></Home>,
+        element: <Home />,
       },
-     
-      {
-        path: "/addCampaign",
-        element: <AddCampaign></AddCampaign>,
-      },
-      {
-        path: "/campaigns",
-        element: <CardsCampaign></CardsCampaign>,
-        loader: () => fetch('http://localhost:5000/campaign')
-      },
-      {
-        path: "/campaigns/:id",
-        element: <CardDetails></CardDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/campaign/${params.id}`)
-      }
     ],
-    errorElement: <ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/camlayout",
+    element: <CampainLaout />,
+    children: [
+      {
+        path: "addCampaign", 
+        element: <AddCampaign />,
+      },
+      {
+        path: "campaigns", 
+        element: <CardsCampaign />,
+        loader: () => fetch('http://localhost:5000/campaign'),
+      },
+      {
+        path: "campaigns/:id",    
+        element: <CardDetails />,
+        loader: ({ params }) => fetch(`http://localhost:5000/campaign/${params.id}`),
+      },
+    ],
+    errorElement: <ErrorPage />,
   },
 ]);
 
+// 🔹 Render the App
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-        <RouterProvider router={router} />
-  </StrictMode>,
-)
+    <RouterProvider router={router} />
+  </StrictMode>
+);

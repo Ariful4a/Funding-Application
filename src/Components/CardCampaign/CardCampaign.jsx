@@ -40,12 +40,12 @@ const CardCampaign = ({ campaign }) => {
                 </div>
 
                 {/* Creator Info */}
-                <div className="mt-3 bg-gray-800 p-2 rounded-lg shadow text-center">
+                <div className="mt-3 bg-gray-800 p-2 rounded-lg shadow text-center mb-6">
                     <p className="text-xs text-gray-500">Created by:</p>
                     <p className="font-bold text-white">{userName}</p>
                     <p className="text-xs text-gray-400">{userEmail}</p>
                 </div>
-                <Link to={`/campaigns/${_id}`}>View Details</Link>
+                <Link className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg" to={`/camlayout/campaigns/${_id}`}>View Details</Link>
             </div>
 
             {/* Glow Animation */}

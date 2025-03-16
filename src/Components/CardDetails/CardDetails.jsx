@@ -68,8 +68,8 @@ const CardDetails = () => {
     };
 
     return (
-        <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-gray-900 to-gray-500">
-            <div className="w-[1000px] bg-white bg-opacity-90 rounded-3xl p-10 shadow-xl">
+        <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-gray-900 to-gray-500 pt-36">
+            <div className="w-[600px] bg-white bg-opacity-90 rounded-3xl p-10 shadow-xl">
                 <div className="text-gray-800 text-center">
                     <img src={photo} alt={title} className="w-full h-60 object-cover rounded-2xl shadow-lg mb-6 transition-transform duration-300 hover:scale-105" />
                     <h2 className="text-4xl font-extrabold text-gray-800">{title}</h2>

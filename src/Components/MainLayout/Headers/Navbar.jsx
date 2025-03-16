@@ -35,8 +35,8 @@ const Navbar = () => {
         <Link to="/" className="text-2xl font-bold"><img className="w-16" src={logo} alt="" /></Link>
         <ul className="hidden md:flex gap-6">
           <li><Link to="/" className="hover:text-red-500">Home</Link></li>
-          <li><Link to="/campaigns" className="hover:text-red-500">All Campaigns</Link></li>
-          <Link to="/addCampaign" className="hover:text-red-500">Add New Campaign</Link>
+          <li><Link to="/camlayout/campaigns" className="hover:text-red-500">Campaigns</Link></li>
+          <Link to="/camlayout/addCampaign" className="hover:text-red-500">Add New Campaign</Link>
         </ul>
 
         <button onClick={handleDarkModeToggle} className="p-2 rounded-full bg-gray-200 hover:bg-gray-300">
