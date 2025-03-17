@@ -17,6 +17,7 @@ import SignUp from './Components/SignUp/SignUp';
 import Login from './Components/SignIn/SignIn';
 import Mycampaign from './Components/Myampaigns/Mycampaigns';
 import MyDonation from './Components/MyDonations/MyDonation';
+import CampaignUpdate from './Components/CampaignUpdate/CampaignUpdate';
 
 // 🔹 Router Setup
 const router = createBrowserRouter([
@@ -56,6 +57,15 @@ const router = createBrowserRouter([
       {
         path: "myDonation",    
         element: <MyDonation />,
+      },
+      {
+        path: "update/:id",
+        element: <CampaignUpdate />,
+        loader: ({ params }) => fetch(`http://localhost:5000/campaign/${params.id}`),
+      },
+      {
+        path: "*",
+        element: <ErrorPage />,
       },
     ],  
     errorElement: <ErrorPage />,

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyCampaigns = () => {
   const { user } = useContext(AuthContext);
@@ -86,9 +87,11 @@ const MyCampaigns = () => {
                 <td className="border p-2">${campaign.minDonation}</td>
                 <td className="border p-2">{campaign.deadline}</td>
                 <td className="border p-2">
+                  <Link to={`/camlayout/update/${campaign._id}`}>
                   <button className="px-4 py-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-600">
                     Update
                   </button>
+                  </Link>
                   <button
                     onClick={() => handleDelete(campaign._id)}
                     className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 ml-2"
