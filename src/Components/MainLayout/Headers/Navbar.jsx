@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { Sun, Moon } from "lucide-react";
 import { useState, useEffect, useContext } from "react";
-import logo from '../../../assets/logo.webp';
+import logo from "../../../assets/logo.webp";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { FaUserCircle } from "react-icons/fa"; // ✅
+import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -26,7 +26,7 @@ const Navbar = () => {
   const handleDarkModeToggle = () => {
     const newDarkMode = !darkMode;
     setDarkMode(newDarkMode);
-    localStorage.setItem("darkMode", newDarkMode);
+    localStorage.setItem("darkMode", newDarkMode); // Save mode preference
     if (newDarkMode) {
       document.body.classList.add("dark");
     } else {
@@ -81,7 +81,6 @@ const Navbar = () => {
           {/* Login & Sign Up Buttons */}
           {user ? (
             <div className="relative flex items-center gap-2">
-            
               {user.photoURL ? (
                 <img
                   src={user.photoURL}

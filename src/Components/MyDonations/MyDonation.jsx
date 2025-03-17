@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import "./HoloCard.css";
+import "./MyDontion.css";
 
 const MyDonations = () => {
   const { user } = useContext(AuthContext);
