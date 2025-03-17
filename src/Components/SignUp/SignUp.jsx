@@ -6,50 +6,48 @@ import Swal from "sweetalert2";
 import Navbar from "../MainLayout/Headers/Navbar";
 
 const SignUp = () => {
-    const { createUser, updateUserProfile, googleSignIn } = useContext(AuthContext);
+    const { createUser, updateUserProfile, googleSignIn , logout} = useContext(AuthContext);
     const navigate = useNavigate();
-    const [error, setError] = useState({});
+    const [error, setError] = useState("");
 
     const handleSignUp = (e) => {
         e.preventDefault();
+        setError(""); // আগের error মুছে ফেলা
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
         const photoURL = e.target.photoURL.value;
 
-        // Password validation
+        // Password Validation
         if (password.length < 6) {
-            setError({ password: "Password must be at least 6 characters long" });
-            return;
+            return setError("Password must be at least 6 characters long");
         }
 
         const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
         if (!regex.test(password)) {
-            setError({ password: "Password must include uppercase, lowercase, number, and special character" });
-            return;
+            return setError("Password must include uppercase, lowercase, number, and special character");
         }
 
         createUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                updateUserProfile({
-                    displayName: name,
-                    photoURL: photoURL
-                }).then(() => {
-                    Swal.fire({
-                        title: "Success!",
-                        text: "You have successfully signed up!",
-                        icon: "success",
-                        confirmButtonText: "Cool",
-                    });
-                    navigate('/login');
-                }).catch(error => {
-                    setError({ message: error.message });
+                return updateUserProfile({ displayName: name, photoURL: photoURL });
+            })
+            .then(() => {
+                logout();
+            })
+            .then(() => {
+                Swal.fire({
+                    title: "Success!",
+                    text: "You have successfully signed up!",
+                    icon: "success",
+                    confirmButtonText: "Cool",
                 });
+                navigate('/login'); 
             })
             .catch(error => {
-                setError({ message: error.message });
+                setError(error.message);
             });
     };
 
@@ -66,13 +64,7 @@ const SignUp = () => {
                 navigate('/');
             })
             .catch(error => {
-                Swal.fire({
-                    title: "Error!",
-                    text: error.message,
-                    icon: "error",
-                    confirmButtonText: "Cool",
-                });
-                setError({ message: error.message });
+                setError(error.message);
             });
     };
 
@@ -136,8 +128,8 @@ const SignUp = () => {
                         </button>
                     </form>
     
-                    {error && <p className="text-red-500 mt-2">{error.message}</p>}
-                    {error.password && <p className="text-red-500 mt-2">{error.password}</p>}
+                    {/* Error Message */}
+                    {error && <p className="text-red-500 mt-2">{error}</p>}
     
                     <p className="text-center text-black">Or</p>
                     {/* Google Sign In Button */}

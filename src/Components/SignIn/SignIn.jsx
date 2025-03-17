@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import Navbar from "../MainLayout/Headers/Navbar";
 
 const Login = () => {
-    const { login, googleSignIn } = useContext(AuthContext);
+    const { login, googleSignIn, setUser } = useContext(AuthContext);
     const navigate = useNavigate();
     const [error, setError] = useState("");
 
@@ -16,13 +16,16 @@ const Login = () => {
         const password = e.target.password.value;
 
         login(email, password)
-            .then(() => {
+            .then((result) => {
+                const user = result.user;
+                // console.log(user);
                 Swal.fire({
                     title: "Success!",
                     text: "You have successfully logged in!",
                     icon: "success",
                     confirmButtonText: "Close",
                 });
+                setUser(user);
                 navigate("/");
             })
             .catch((error) => {
