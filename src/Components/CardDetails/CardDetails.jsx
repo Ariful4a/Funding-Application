@@ -1,10 +1,13 @@
 import { useLoaderData } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect , useContext} from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+
 
 const CardDetails = () => {
     const campaignLoader = useLoaderData();
     const [isExpired, setIsExpired] = useState(false);
+    const {user} = useContext(AuthContext);
 
     if (!campaignLoader) return <p className="text-center mt-10 text-xl">Loading...</p>;
 
@@ -42,9 +45,10 @@ const CardDetails = () => {
                 const campaignId = campaignLoader._id;
                 const userId = campaignLoader.userId;
                 const userEmail = campaignLoader.userEmail;
+                const donarEmail = user.email;
                 const userName = campaignLoader.userName;
                 const photo = campaignLoader.photo;
-                const newDonation = { donationAmount, campaignId, userId, userEmail, userName, photo };
+                const newDonation = { donationAmount, campaignId, userId, userEmail, userName, photo, donarEmail };
                 fetch('http://localhost:5000/donate', {
                     method: 'POST',
                     headers: {

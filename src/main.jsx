@@ -16,6 +16,7 @@ import AuthProvider from './Components/AuthProvider/AuthProvider';
 import SignUp from './Components/SignUp/SignUp';
 import Login from './Components/SignIn/SignIn';
 import Mycampaign from './Components/Myampaigns/Mycampaigns';
+import MyDonation from './Components/MyDonations/MyDonation';
 
 // 🔹 Router Setup
 const router = createBrowserRouter([
@@ -51,7 +52,11 @@ const router = createBrowserRouter([
       {
         path: "mycampaigns",    
         element: <Mycampaign />,
-      }
+      },
+      {
+        path: "myDonation",    
+        element: <MyDonation />,
+      },
     ],  
     errorElement: <ErrorPage />,
   },

@@ -6,15 +6,15 @@ import Swal from "sweetalert2";
 const MyCampaigns = () => {
   const { user } = useContext(AuthContext);
   const [campaigns, setCampaigns] = useState([]);
-    console.log(campaigns)
+    // console.log(campaigns)
 
     useEffect(() => {
         if (user?.email) {
-          console.log("User Email:", user.email);
+          // console.log("User Email:", user.email);
           axios
             .get(`http://localhost:5000/myCampaigns?email=${user.email}`)
             .then((res) => {
-              console.log("Fetched Data:", res.data); 
+              // console.log("Fetched Data:", res.data); 
               setCampaigns(res.data);
             })
             .catch((error) => console.error("Error fetching campaigns:", error));
@@ -27,7 +27,7 @@ const MyCampaigns = () => {
       <h2 className="text-2xl font-bold mb-4">My Campaigns</h2>
       <table className="w-full border-collapse border border-gray-300">
         <thead>
-          <tr className="bg-gray-200">
+          <tr>
             <th className="border p-2">Photo</th>
             <th className="border p-2">Title</th>
             <th className="border p-2">Type</th>
