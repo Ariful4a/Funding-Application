@@ -18,6 +18,7 @@ import Login from './Components/SignIn/SignIn';
 import Mycampaign from './Components/Myampaigns/Mycampaigns';
 import MyDonation from './Components/MyDonations/MyDonation';
 import CampaignUpdate from './Components/CampaignUpdate/CampaignUpdate';
+import PrivateRoutes from './Components/PrivateRoutes/PrivateRoutes';
 
 // 🔹 Router Setup
 const router = createBrowserRouter([
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/camlayout",
-    element: <CampainLaout />,
+    element: <PrivateRoutes><CampainLaout /></PrivateRoutes>,
     children: [
       {
         path: "addCampaign", 

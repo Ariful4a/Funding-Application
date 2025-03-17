@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { useNavigate , useLocation} from "react-router-dom";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import Navbar from "../MainLayout/Headers/Navbar";
@@ -9,6 +9,7 @@ const Login = () => {
     const { login, googleSignIn, setUser } = useContext(AuthContext);
     const navigate = useNavigate();
     const [error, setError] = useState("");
+    const location = useLocation()
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -26,7 +27,7 @@ const Login = () => {
                     confirmButtonText: "Close",
                 });
                 setUser(user);
-                navigate("/");
+                navigate(location?.state ? location.state : '/');
             })
             .catch((error) => {
                 setError(error.message);
