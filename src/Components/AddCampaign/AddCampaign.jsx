@@ -2,8 +2,11 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Fade } from "react-awesome-reveal";
 import Swal from "sweetalert2";
+import { useContext } from "react";
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const AddNewCampaign = () => {
+    const { user } = useContext(AuthContext);
 
     const handleAddCampaign = (e) => {
         e.preventDefault();
@@ -83,11 +86,11 @@ const AddNewCampaign = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label className="label">Your Email</label>
-                            <input type="email" name="userEmail" className="input input-bordered w-full text-black" placeholder="Enter your email" required/>
+                            <input type="email" name="userEmail" value={user?.email} readOnly className="input input-bordered w-full text-black" placeholder="Enter your email" required/>
                         </div>
                         <div>
                             <label className="label">Your Name</label>
-                            <input type="text" name="userName" className="input input-bordered w-full text-black" placeholder="Enter your name" required/>
+                            <input type="text" name="userName" value={user?.displayName} readOnly className="input input-bordered w-full text-black" placeholder="Enter your name" required/>
                         </div>
                     </div>
                     <div className="mt-4">

@@ -12,7 +12,7 @@ const SignUp = () => {
 
     const handleSignUp = (e) => {
         e.preventDefault();
-        setError(""); // আগের error মুছে ফেলা
+        setError(""); 
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
