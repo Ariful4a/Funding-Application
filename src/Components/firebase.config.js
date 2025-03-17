@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAHW06ZIHteeukDmQrxNTP2zvsR9s08xME",
-  authDomain: "fanding-donate.firebaseapp.com",
-  projectId: "fanding-donate",
-  storageBucket: "fanding-donate.firebasestorage.app",
-  messagingSenderId: "829499879858",
-  appId: "1:829499879858:web:17ccdcee29368e7ac234ab"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId:import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 // Initialize Firebase
