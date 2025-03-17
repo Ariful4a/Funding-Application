@@ -68,7 +68,7 @@ const Navbar = () => {
           <li><Link to="/" className="hover:text-red-500">Home</Link></li>
           <li><Link to="/camlayout/campaigns" className="hover:text-red-500">Campaigns</Link></li>
           <li><Link to="/camlayout/addCampaign" className="hover:text-red-500">Add New Campaign</Link></li>
-          <li><Link to="/camlayout/donations" className="hover:text-red-500">My Campaigns</Link></li>
+          <li><Link to="/camlayout/mycampaigns" className="hover:text-red-500">My Campaigns</Link></li>
           <li><Link to="/camlayout/donations" className="hover:text-red-500">My Donations</Link></li>
         </ul>
 
