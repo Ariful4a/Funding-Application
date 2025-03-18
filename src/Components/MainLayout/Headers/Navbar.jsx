@@ -79,7 +79,7 @@ const Navbar = () => {
             <NavLink 
               to="/" 
               className={({ isActive }) => 
-                isActive ? "text-red-500 font-bold" : "hover:text-red-500 transition"
+                isActive ? "bg-red-500 p-2 rounded-xl font-bold" : "hover:text-red-500 transition"
               }
             >
               Home
@@ -89,7 +89,7 @@ const Navbar = () => {
             <NavLink 
               to="/camlayout/campaigns" 
               className={({ isActive }) => 
-                isActive ? "text-red-500 font-bold" : "hover:text-red-500 transition"
+                isActive ? "bg-red-500 p-2 rounded-xl font-bold" : "hover:text-red-500 transition"
               }
             >
               Campaigns
@@ -99,7 +99,7 @@ const Navbar = () => {
             <NavLink 
               to="/camlayout/addCampaign" 
               className={({ isActive }) => 
-                isActive ? "text-red-500 font-bold" : "hover:text-red-500 transition"
+                isActive ? "bg-red-500 p-2 rounded-xl font-bold" : "hover:text-red-500 transition"
               }
             >
               Add New Campaign
@@ -109,7 +109,7 @@ const Navbar = () => {
             <NavLink 
               to="/camlayout/mycampaigns" 
               className={({ isActive }) => 
-                isActive ? "text-red-500 font-bold" : "hover:text-red-500 transition"
+                isActive ? "bg-red-500 p-2 rounded-xl font-bold" : "hover:text-red-500 transition"
               }
             >
               My Campaigns
@@ -119,7 +119,7 @@ const Navbar = () => {
             <NavLink 
               to="/camlayout/myDonation" 
               className={({ isActive }) => 
-                isActive ? "text-red-500 font-bold" : "hover:text-red-500 transition"
+                isActive ? "bg-red-500 p-2 rounded-xl font-bold" : "hover:text-red-500 transition"
               }
             >
               My Donations
@@ -179,7 +179,7 @@ const Navbar = () => {
               <NavLink 
                 to="/" 
                 className={({ isActive }) => 
-                  isActive ? "text-red-500 font-bold" : "hover:text-red-500 transition"
+                  isActive ? "bg-red-500 p-2 rounded-xl font-bold" : "hover:text-red-500 transition"
                 }
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -190,7 +190,7 @@ const Navbar = () => {
               <NavLink 
                 to="/camlayout/campaigns" 
                 className={({ isActive }) => 
-                  isActive ? "text-red-500 font-bold" : "hover:text-red-500 transition"
+                  isActive ? "bg-red-500 p-2 rounded-xl font-bold" : "hover:text-red-500 transition"
                 }
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -201,7 +201,7 @@ const Navbar = () => {
               <NavLink 
                 to="/camlayout/addCampaign" 
                 className={({ isActive }) => 
-                  isActive ? "text-red-500 font-bold" : "hover:text-red-500 transition"
+                  isActive ? "bg-red-500 p-2 rounded-xl font-bold" : "hover:text-red-500 transition"
                 }
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -212,7 +212,7 @@ const Navbar = () => {
               <NavLink 
                 to="/camlayout/mycampaigns" 
                 className={({ isActive }) => 
-                  isActive ? "text-red-500 font-bold" : "hover:text-red-500 transition"
+                  isActive ? "bg-red-500 p-2 rounded-xl font-bold" : "hover:text-red-500 transition"
                 }
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -223,7 +223,7 @@ const Navbar = () => {
               <NavLink 
                 to="/camlayout/myDonation" 
                 className={({ isActive }) => 
-                  isActive ? "text-red-500 font-bold" : "hover:text-red-500 transition"
+                  isActive ? "bg-red-500 p-2 rounded-xl font-bold" : "hover:text-red-500 transition"
                 }
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -233,7 +233,7 @@ const Navbar = () => {
             {user ? (               
               <button                 
                 onClick={handleLogout}                 
-                className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition w-full text-center"               
+                className="py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition w-40 text-center"               
               >                 
                 Logout               
               </button>             
