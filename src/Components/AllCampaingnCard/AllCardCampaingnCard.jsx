@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 
 const AllCampaingnCard = ({ campaign }) => {
@@ -19,7 +18,7 @@ const AllCampaingnCard = ({ campaign }) => {
                     </div>
                 </div>
             </td>
-            <td>
+            <td className="hidden md:table-cell">
                 {userName}
                 <br />
                 <span className="badge badge-ghost badge-sm">{userEmail}</span>

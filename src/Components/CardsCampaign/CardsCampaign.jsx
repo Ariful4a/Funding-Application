@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const CardsCampaign = () => {
   const loaderCampaigns = useLoaderData();
-  const [campaigns, setCampaigns] = useState(loaderCampaigns);  // loaderCampaigns-কে স্টেটে রাখলাম
+  const [campaigns, setCampaigns] = useState(loaderCampaigns); // loaderCampaigns-কে স্টেটে রাখলাম
   const [sortOrder, setSortOrder] = useState("asc");
 
   const handleSort = () => {
@@ -29,7 +29,7 @@ const CardsCampaign = () => {
         <thead>
           <tr>
             <th>Campaign</th>
-            <th>Organizer</th>
+            <th className="hidden md:table-cell">Organizer</th>
             <th>Min Donation</th>
             <th>Deadline</th>
             <th>Details</th>

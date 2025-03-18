@@ -32,7 +32,7 @@ const CardCampaign = ({ campaign }) => {
                 {/* Donation and Deadline */}
                 <div className="mt-3 grid grid-cols-2 gap-3 text-xs">
                     <p className="bg-gray-800 p-2 rounded-lg shadow text-green-400 flex items-center justify-center">
-                        💰 Min: <span className="font-bold ml-1">{minDonation}</span>
+                        💰 Min:<span className="font-bold ml-1">${minDonation}</span>
                     </p>
                     <p className="bg-gray-800 p-2 rounded-lg shadow text-red-400 flex items-center justify-center">
                         📅 Deadline: <span className="font-bold ml-1">{deadline}</span>

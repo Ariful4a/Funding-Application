@@ -37,6 +37,7 @@ const AddNewCampaign = () => {
                         icon: "success",
                         confirmButtonText: "Cool",
                     });
+                    form.reset();
                 }
                 console.log(data);
             });
