@@ -28,6 +28,7 @@ const HeroSlider = () => {
           
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70"></div>
+          
 
           {/* Text Content */}
           <div className="absolute top-5 lg:top-0 bottom-16 md:bottom-24 left-1/2 transform -translate-x-1/2 text-white text-center p-4 md:p-6 bg-black/30 backdrop-blur-md rounded-lg shadow-lg">
