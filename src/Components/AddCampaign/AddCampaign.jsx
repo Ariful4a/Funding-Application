@@ -23,7 +23,7 @@ const AddNewCampaign = () => {
         const newCampaign = { title, type, description, minDonation, deadline, userEmail, userName, photo };
         console.log(newCampaign);
 
-        fetch("http://localhost:5000/campaign", {
+        fetch("https://funding-aplication-server.vercel.app/campaign", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(newCampaign),

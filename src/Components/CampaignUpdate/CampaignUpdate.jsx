@@ -32,7 +32,7 @@ const UpdatedCampaign = () => {
             photo,
         };
 
-        fetch(`http://localhost:5000/campaign/${campaign._id}`, {
+        fetch(`https://funding-aplication-server.vercel.app/campaign/${campaign._id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

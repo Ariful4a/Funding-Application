@@ -49,7 +49,7 @@ const CardDetails = () => {
                 const userName = campaignLoader.userName;
                 const photo = campaignLoader.photo;
                 const newDonation = { donationAmount, campaignId, userId, userEmail, userName, photo, donarEmail };
-                fetch('http://localhost:5000/donate', {
+                fetch('https://funding-aplication-server.vercel.app/donate', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

@@ -44,12 +44,12 @@ const router = createBrowserRouter([
       {
         path: "campaigns", 
         element: <CardsCampaign />,
-        loader: () => fetch('http://localhost:5000/campaign'),
+        loader: () => fetch('https://funding-aplication-server.vercel.app/campaign'),
       },
       {
         path: "campaigns/:id",    
         element: <CardDetails />,
-        loader: ({ params }) => fetch(`http://localhost:5000/campaign/${params.id}`),
+        loader: ({ params }) => fetch(`https://funding-aplication-server.vercel.app/campaign/${params.id}`),
       },
       {
         path: "mycampaigns",    
@@ -62,7 +62,7 @@ const router = createBrowserRouter([
       {
         path: "update/:id",
         element: <CampaignUpdate />,
-        loader: ({ params }) => fetch(`http://localhost:5000/campaign/${params.id}`),
+        loader: ({ params }) => fetch(`https://funding-aplication-server.vercel.app/campaign/${params.id}`),
       },
       {
         path: "*",

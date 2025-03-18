@@ -11,7 +11,7 @@ const MyCampaigns = () => {
   useEffect(() => {
     if (user?.email) {
       axios
-        .get(`http://localhost:5000/myCampaigns?email=${user.email}`)
+        .get(`https://funding-aplication-server.vercel.app/myCampaigns?email=${user.email}`)
         .then((res) => {
           setCampaigns(res.data);
         })
@@ -32,7 +32,7 @@ const MyCampaigns = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/campaign/${_id}`)
+          .delete(`https://funding-aplication-server.vercel.app/campaign/${_id}`)
           .then((res) => {
             if (res.data.deletedCount > 0) {
               Swal.fire({

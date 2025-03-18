@@ -10,7 +10,7 @@ const MyDonations = () => {
   useEffect(() => {
     if (user?.email) {
       axios
-        .get(`http://localhost:5000/myDonateCampaigns?email=${user.email}`)
+        .get(`https://funding-aplication-server.vercel.app/myDonateCampaigns?email=${user.email}`)
         .then((res) => setDonations(res.data))
         .catch((error) => console.error("Error fetching donations:", error));
     }

@@ -4,7 +4,7 @@ const CampaignHighlight = () => {
   const [campaigns, setCampaigns] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/topCampaigns")
+    fetch("https://funding-aplication-server.vercel.app/topCampaigns")
       .then((res) => res.json())
       .then((data) => {
         console.log(data); // API থেকে আসা ডেটা চেক করুন

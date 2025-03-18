@@ -8,7 +8,7 @@ const Home = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("http://localhost:5000/homeCampaigns?limit=6")
+        fetch("https://funding-aplication-server.vercel.app/homeCampaigns?limit=6")
             .then(res => res.json())
             .then(data => {
                 setCampaigns(data);
