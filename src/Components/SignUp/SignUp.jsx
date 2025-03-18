@@ -71,7 +71,7 @@ const SignUp = () => {
     return (
         <div>
             <Navbar />
-            <div className="bg-gradient-to-r from-blue-600 to-purple-700 flex items-center justify-center">
+            <div className="bg-gradient-to-r from-blue-600 to-purple-700 flex px-4 lg:px-0 items-center justify-center">
                 <div className="max-w-md w-full mt-32 bg-white rounded-2xl shadow-2xl p-6 mb-10 space-y-4 transform hover:scale-105 transition duration-300">
                     <h2 className="text-3xl font-bold text-center text-indigo-700">Sign Up</h2>
                     <form className="space-y-2 h-[400px] text-black" onSubmit={handleSignUp}>

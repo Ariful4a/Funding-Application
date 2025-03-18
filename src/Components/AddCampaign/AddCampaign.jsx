@@ -44,7 +44,7 @@ const AddNewCampaign = () => {
     };
 
     return (
-        <Fade>
+        <Fade className="pt-36 px-4 lg:px-0">
             <motion.div
                 className="max-w-2xl mx-auto bg-gray-900 p-8 rounded-xl shadow-2xl border border-gray-700 text-white relative overflow-hidden"
                 initial={{ opacity: 0, scale: 0.9 }}

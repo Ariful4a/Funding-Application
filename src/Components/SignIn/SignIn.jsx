@@ -53,7 +53,7 @@ const Login = () => {
     return (
         <>
             <Navbar />
-            <div className="bg-gradient-to-r from-gray-800 to-gray-900 flex items-center justify-center">
+            <div className="bg-gradient-to-r from-gray-800 to-gray-900 flex items-center justify-center px-4 lg:px-0">
                 <div className="max-w-md w-full mt-32 mb-10 bg-white rounded-2xl shadow-2xl p-8 space-y-4 transform hover:scale-105 transition duration-300">
                     <h2 className="text-3xl font-bold text-center text-indigo-700">Login</h2>
                     <form className="space-y-4 text-black" onSubmit={handleLogin}>

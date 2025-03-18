@@ -4,14 +4,14 @@ import { useState } from "react";
 
 const CardsCampaign = () => {
   const loaderCampaigns = useLoaderData();
-  const [campaigns, setCampaigns] = useState(loaderCampaigns); // loaderCampaigns-কে স্টেটে রাখলাম
+  const [campaigns, setCampaigns] = useState(loaderCampaigns); 
   const [sortOrder, setSortOrder] = useState("asc");
 
   const handleSort = () => {
     const sorted = [...campaigns].sort((a, b) =>
       sortOrder === "asc" ? a.minDonation - b.minDonation : b.minDonation - a.minDonation
     );
-    setCampaigns(sorted); // sorted ডেটা স্টেটে সেট করছি
+    setCampaigns(sorted); 
     setSortOrder(sortOrder === "asc" ? "desc" : "asc");
   };
 
@@ -20,18 +20,20 @@ const CardsCampaign = () => {
   }
 
   return (
-    <div className="overflow-x-auto max-w-6xl mx-auto pt-36">
+    <div className="overflow-x-auto max-w-6xl mx-auto pt-36 px-1 lg:px-0">
       <h1 className="text-3xl font-bold text-center mb-5">All Campaigns</h1>
-      <button onClick={handleSort} className="btn btn-secondary mb-3">
+     <div className="px-4">
+     <button onClick={handleSort} className="btn btn-secondary mb-3">
         Sort by Min Donation ({sortOrder === "asc" ? "Ascending" : "Descending"})
       </button>
+     </div>
       <table className="table w-full">
         <thead>
-          <tr>
+          <tr className="bg-gray-900 text-white">
             <th>Campaign</th>
             <th className="hidden md:table-cell">Organizer</th>
             <th>Min Donation</th>
-            <th>Deadline</th>
+            <th className="hidden sm:table-cell">Deadline</th> 
             <th>Details</th>
           </tr>
         </thead>

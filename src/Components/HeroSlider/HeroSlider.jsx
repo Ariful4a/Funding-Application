@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 
 const HeroSlider = () => {
   return (
-    <div className="w-full h-screen">
+    <div className="w-full">
       <Swiper
         modules={[Navigation, Autoplay, Pagination]}
         navigation
@@ -28,11 +28,11 @@ const HeroSlider = () => {
           
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70"></div>
-          
+
 
           {/* Text Content */}
-          <div className="absolute top-5 lg:top-0 bottom-16 md:bottom-24 left-1/2 transform -translate-x-1/2 text-white text-center p-4 md:p-6 bg-black/30 backdrop-blur-md rounded-lg shadow-lg">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight">
+          <div className="absolute flex flex-col items-center justify-center bottom-[160px] md:bottom-24 left-1/2 transform -translate-x-1/2 text-white text-center w-[300px] lg:w-[600px] p-4 md:p-6 bg-black/30 backdrop-blur-md rounded-lg shadow-lg">
+            <h1 className="text-2xl lg:text-4xl sm:text-5xl md:text-6xl font-black leading-tight">
               Join the journey <br /> from Idea to Market
             </h1>
             <p className="mt-4 text-sm sm:text-base md:text-lg">
@@ -49,11 +49,11 @@ const HeroSlider = () => {
             alt="Business"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70"></div>
-          <p className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white bg-black bg-opacity-50 p-4 rounded">
+          <p className="absolute bottom-[220px] text-center md:bottom-24 left-1/2 transform -translate-x-1/2 text-white bg-black bg-opacity-50 p-4 rounded">
             Help Innovators Bring Their Projects to Life
           </p>
-          {/* Additional Text */}
-          <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 text-white text-center p-4 bg-black/40 backdrop-blur-md rounded-lg shadow-lg">
+        
+          <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 text-white text-center p-4 bg-black/40 backdrop-blur-md w-[300px] lg:w-[600px] rounded-lg shadow-lg">
             <p className="md:text-lg">Invest in creativity and fuel innovative solutions for a better tomorrow.</p>
           </div>
         </SwiperSlide>
@@ -66,12 +66,12 @@ const HeroSlider = () => {
             alt="Charity"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70"></div>
-          <p className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white bg-black p-4 rounded z-20">
+          <p className="absolute bottom-[90px] lg:bottom-[200px] left-1/2 transform -translate-x-1/2 text-white bg-black p-4 rounded z-20 text-center">
             Support Meaningful Causes & Make a Difference
           </p>
-          {/* Additional Text */}
-          <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 text-white text-center p-4 bg-black/40 backdrop-blur-md rounded-lg shadow-lg">
-            <p className="md:text-lg">Join hands with us to make the world a better place by supporting charitable causes.</p>
+        
+          <div className="absolute bottom-[220px] w-[300px] lg:w-[600px] md:bottom-24 left-1/2 transform -translate-x-1/2 text-white text-center p-4 bg-black/40 backdrop-blur-md rounded-lg shadow-lg">
+            <p className="md:text-lg text-center">Join hands with us to make the world a better place by supporting charitable causes.</p>
           </div>
         </SwiperSlide>
       </Swiper>
